@@ -1,0 +1,3 @@
+nomeJogadores=[]
+quantPartidas=[]
+quantGols=[]
