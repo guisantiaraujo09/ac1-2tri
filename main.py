@@ -1,4 +1,4 @@
-from funcoes import cadastra_jogador, mostrar_jogadores
+from funcoes import *
 
 acao = 0
 
@@ -13,7 +13,6 @@ while acao != 9:
     print("6 - Remover jogador do cadastro")
     print("7 - Mostrar estatísticas gerais")
     print("8 - Encerrar programa")
-    print("9 - Sair")
 
     acao=int(input("Escolha a sua ação: "))
 
@@ -21,5 +20,19 @@ while acao != 9:
         cadastra_jogador()
     elif acao == 2:
         mostrar_jogadores()
-
+    elif acao == 3:
+        mostrar_relatorio()
+    elif acao == 4:
+        pesquisar_jogador()
+    elif acao == 5:
+        alterar_jogador()
+    elif acao == 6:
+        remover_jogador()
+    elif acao == 7:
+        mostrar_estatisticas()
+    elif acao == 8:
+        print("Fechando o programa...")
+        break
+    else:
+        print("Opção invalida, tente novamente")
         

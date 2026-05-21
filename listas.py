@@ -1,3 +1,4 @@
 nomeJogadores=[]
 quantPartidas=[]
 quantGols=[]
+
