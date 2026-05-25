@@ -2,9 +2,8 @@ from funcoes import *
 
 acao = 0
 
-while acao != 9:
-
-    print("\nMENU")
+while acao != 8:
+    print("Menu")
     print("1 - Cadastrar jogador")
     print("2 - Mostrar jogadores cadastrado")
     print("3 - Mostrar relatorio completo")

@@ -60,7 +60,38 @@ def pesquisar_jogador():
             print("Jogador nao encontrado ou digitou o nome errado")
 
 def alterar_jogador():
-     print
+    acao=0
+    while acao !=3:
+        print("1 - Alterar dados do jogador")
+        print("2 - Excluir jogador")
+        print("3 - Finalizar alterações")
+
+        acao=int(input("Qual ação deseja fazer: "))
+        if acao==1:
+            if len(nomeJogadores)==0:
+                print("Nao possui jogadores cadastrados")
+            else:
+                jogador=input("Digite o nome do jogador: ")
+                if jogador in nomeJogadores:
+                    posicao=nomeJogadores.index(jogador)
+                    novoJogador=input("Digite o novo nome do jogador: ")
+                    nomeJogadores[posicao]=novoJogador
+                    print("Nome do jogador trocado com sucesso")
+                else:
+                    print("Jogador nao encontrado ou digitou o nome errado")
+        elif acao==2:
+            jogador=input("Digite o nome do jogador que deseja excluir: ")
+            if len(nomeJogadores)==0:
+                print("Jogador nao encontadro")
+            else:
+                for i in range(nomeJogadores):
+                    pesquisar=input("Digite o nome do jogador que deseja remover: ")
+                    if pesquisar in nomeJogadores:
+                        posicao=nomeJogadores.index(pesquisar)
+                        nomeJogadores.remove(pesquisar[i], quantGols[i], quantPartidas[i])
+                        print("Jogador removido com sucesso")
+                    else:
+                        print("Jogador nao econtrado")
 
 def remover_jogador():
      print
