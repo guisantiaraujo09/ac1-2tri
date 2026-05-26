@@ -64,7 +64,7 @@ def alterar_jogador():
     while acao !=3:
         print("1 - Alterar dados do jogador")
         print("2 - Excluir jogador")
-        print("3 - Finalizar alterações")
+        print("3 - Encerrar alterações")
 
         acao=int(input("Qual ação deseja fazer: "))
         if acao==1:
@@ -79,25 +79,62 @@ def alterar_jogador():
                     print("Nome do jogador trocado com sucesso")
                 else:
                     print("Jogador nao encontrado ou digitou o nome errado")
-        elif acao==2:
-            jogador=input("Digite o nome do jogador que deseja excluir: ")
-            if len(nomeJogadores)==0:
-                print("Jogador nao encontadro")
+        elif acao == 2:
+            if len(nomeJogadores) == 0:
+                print("Não possui jogadores cadastrados")
             else:
-                for i in range(nomeJogadores):
-                    pesquisar=input("Digite o nome do jogador que deseja remover: ")
-                    if pesquisar in nomeJogadores:
-                        posicao=nomeJogadores.index(pesquisar)
-                        nomeJogadores.remove(pesquisar[i], quantGols[i], quantPartidas[i])
-                        print("Jogador removido com sucesso")
-                    else:
-                        print("Jogador nao econtrado")
+                jogador = input("Digite o nome do jogador que deseja excluir: ")
+                if jogador in nomeJogadores:
+                    posicao = nomeJogadores.index(jogador)
+                    nomeJogadores.pop(posicao)
+                    quantPartidas.pop(posicao)
+                    quantGols.pop(posicao)
+                    print("Jogador removido com sucesso!")
+                else:
+                    print("Jogador não encontrado.")
+        else:
+            print("Encerrando alterações")
+            break
 
 def remover_jogador():
-     print
+    if len(nomeJogadores) == 0:
+        print("Não possui jogadores cadastrados.")
+    else:
+        jogador = input("Digite o nome do jogador que deseja remover: ")
+        if jogador in nomeJogadores:
+            posicao =nomeJogadores.index(jogador)
+            nomeJogadores.pop(posicao)
+            quantPartidas.pop(posicao)
+            quantGols.pop(posicao)
+            print("Jogador removido com sucesso!")
+        else:
+            print("Jogador não encontrado.")
 
 def mostrar_estatisticas():
-     print
+    if len(nomeJogadores) == 0:
+        print("Nenhum jogador cadastrado.")
+    else:
+        medias = []
+        excelentes = 0
+        melhorar = 0
+        for i in range(len(nomeJogadores)):
+            if quantPartidas[i]>0:
+                media =quantGols[i]/quantPartidas[i]
+            else:
+                media=0   
+            medias.append(media)
+            if media >= 2:
+                excelentes += 1
+            elif media < 1:
+                melhorar += 1
+            
+    print(f"1-Quantidade de jogadores: {len(nomeJogadores)}")
+    print(f"2-Melhor media: {max(medias)}")
+    print(f"3-Menor media: {min(medias)}")
+    print(f"4-Média geral dos jogadores: {sum(medias)/len(medias)}")
+    print(f"5-Jogador com melhor desempenho: {nomeJogadores[medias.index(max(medias))]}")
+    print(f"6-Jogadores com excelente: {excelentes}")
+    print(f"7-Jogadores que precisam melhorar: {melhorar}")
 
 
 
